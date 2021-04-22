@@ -1,0 +1,445 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  'Roboto', sans-serif;
+}
+html{
+    height: 100%;
+}
+
+/** Useful / General */
+
+.center{
+    max-width: 980px;
+    margin: 0 auto;
+}
+.clear{clear: both;}
+.left{float: left;}
+.right{float: right;}
+.w18{width:18%;}
+.w25{width:25%;}
+.w50{width:50%;}
+.w75{width:75%;}
+.w82{width:82%;}
+
+.menu-side{
+    position:fixed;
+}
+
+.submit-bttn{
+    border: none;
+    border-left: 2px solid blue;
+    background-color: rgb(81, 81, 255);
+    outline: none;
+    padding: 8px 12px;
+    color: white;
+    cursor: pointer;
+}
+.submit-bttn:hover{
+    background-color: blue;
+}
+
+.adj-top{
+    height:50px;
+}
+
+
+
+/** Header */
+
+header{
+    height: 50px;
+    background-color: rgb(15, 90, 253);
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+.menu-side-top{
+    height: 50px;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+    background-color: rgb(0, 0, 255);
+}
+.menu-side-top h1{
+    margin-top: 3%;
+}
+
+.menu-side-body{
+    background-color:rgb(31, 31, 31);
+    height:100%;
+}
+.menu-side-body h4{
+    color: #ccc;
+    font-size: 14px;
+    margin-top: 12px;
+    padding: 12px 0;
+    padding-left: 12px;
+    background-color: rgb(48, 47, 47);
+}
+.menu-side-body ul{
+    list-style-type: none;
+    font-size: 15px;
+    margin-top: 8px;
+}
+.menu-side-body li{
+    
+    width: 100%;
+}
+.menu-side-body li a{
+    text-decoration: none;
+    color: white;
+}
+.menu-side-body li a div{
+    padding: 8px 12px;
+}
+.menu-side-body li a:hover, .menu-side-body li a:active{
+    color: rgb(155, 152, 152);
+}
+.menu-side-body li a.active{
+    color: rgb(155, 152, 152);
+}
+
+.menu .picture{
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    transform: translateY(25%);
+    background-color: #ccc;
+    display: inline-block;
+}
+
+.menu p{
+    display: inline-block;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.menu a{
+    padding-right: 20px;
+}
+
+/** New Employee */
+
+.new-emp .form-block{
+    border-top: 4px solid blue;
+    border-radius: 3px;
+    box-shadow: 0 2px 10px 6px #ccc;
+}
+
+.new-emp .form-block h3{
+    text-align: center;
+    margin: 12px 0;
+    font-size: 24px;
+}
+
+.new-emp .form-block form{
+    width: 92%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.new-emp .form-block form .center{
+    width: 620px;
+}
+
+.new-emp .form-block form .form-single{
+    margin-top: 20px;
+}
+.new-emp .form-block form .form-single input{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    padding: 6px 6px 2px;
+    font-size: 14px;
+}
+.new-emp .form-block form .w75 input{
+    width: 95%;
+
+}
+
+.new-emp .form-block form .form-single label{
+    color: rgb(122, 122, 122);
+}
+
+.new-emp .form-block p{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    color:rgb(48, 47, 47);
+}
+
+.new-emp .form-block select{
+    margin-top: 8px;
+    outline: none;
+    border: 1px solid rgb(160, 160, 160);
+    color: rgb(48, 47, 47);
+}
+
+.new-emp .form-block button{
+    margin-top: 12px;
+    margin-bottom: 20px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.new-emp .form-block .errorMsg p{
+    color:red;
+    font-size: 10px;
+    margin-left:10px;
+}
+
+/* confirm-reg */
+
+.new-emp .confirm-wrapper{
+    /* display:none; */
+    height: 100%;
+    width:100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 20;
+}
+
+/** New Dependent */
+
+.new-dep .form-block{
+    border-top: 4px solid blue;
+    border-radius: 3px;
+    box-shadow: 0 2px 10px 6px #ccc;
+}
+
+.new-dep .form-block h3{
+    text-align: center;
+    margin: 12px 0;
+    font-size: 24px;
+}
+
+.new-dep .form-block form{
+    width: 92%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.new-dep .form-block form .center{
+    width: 620px;
+}
+
+.new-dep .form-block form .func-data-wrapper{
+    border-left: 2px solid #ccc;
+    padding-left: 4px;
+}
+
+.new-dep .form-block form .form-single{
+    margin-top: 20px;
+}
+.new-dep .form-block form .form-single input{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    padding: 6px 6px 2px;
+    font-size: 14px;
+}
+.new-dep .form-block form .w75 input{
+    width: 95%;
+
+}
+
+.new-dep .form-block form .form-single label{
+    color: rgb(122, 122, 122);
+}
+
+.new-dep .form-block .func-data-wrapper p{
+    margin-top: 12px;
+    font-size: 12px;
+    color:rgb(122, 122, 122);
+}
+
+.new-dep .form-block form .center > p{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    color:rgb(48, 47, 47);
+}
+
+.new-dep .form-block select{
+    margin-top: 8px;
+    outline: none;
+    border: 1px solid rgb(160, 160, 160);
+    color: rgb(48, 47, 47);
+}
+
+.new-dep .form-block button{
+    margin-top: 12px;
+    margin-bottom: 20px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.new-dep .form-block .errorMsg p{
+    color:red;
+    font-size: 10px;
+    margin-left:10px;
+}
+
+/** Employees */
+
+section.emps .table-block table tr{
+    text-align: left;
+}
+
+    /* Table th*/
+section.emps table.single-th{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-top: 3px solid blue;
+    border-collapse: collapse;
+}
+
+section.emps table.single-th th{
+    width: 47%;
+}
+
+section.emps table.single-th th:first-child{
+    width: 6%;
+}
+
+section.emps table tr th{
+    border: 1px solid #ccc;
+    background-color: rgb(162, 162, 247);
+    padding: 8px 4px;
+}
+
+    /* Table td*/
+
+section.emps table.single-td{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+section.emps table.single-td td{
+    width: 47%;
+}
+section.emps table.single-td td:first-child{
+    width: 6%;
+}
+
+section.emps table tr td{
+    border: 1px solid #ccc;
+    padding: 8px 4px;
+    cursor: pointer;
+}
+
+    /* Div func-data */
+
+section.emps .table-block div.func-data{
+    display: none;
+    padding: 8px 12px 16px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background-color: rgb(248,248,248);
+}
+
+section.emps .table-block div.func-data h3{
+    margin: 6px 0;
+}
+
+section.emps .table-block div.func-data p.address{
+    margin: 3px 0;
+}
+
+section.emps .table-block div.func-data a, section.emps .table-block div.func-data button{
+    text-decoration: none;
+    color: rgb(48, 47, 47);
+}
+
+section.emps .table-block div.func-data a div, section.emps .table-block div.func-data button{
+    display: inline-block;
+    font-size: 11px;
+    padding: 4px 4px;
+    border: 1px solid black;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+section.emps .table-block div.func-data a div:active, section.emps .table-block div.func-data button:active{
+    background-color: rgb(230, 230, 230);
+}
+
+section.emps .table-block div.func-data .bttn-emp{
+    float:right;
+    margin-left: 8px;
+}
+
+section.emps .table-block div.func-data .edit-emp{
+    color: green;
+}
+section.emps .table-block div.func-data .del-emp{
+    color: red;
+}
+
+section.emps .reg-deps-wrapper{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    position:fixed;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left:0;
+    z-index: 999;
+}
+section.emps .reg-deps-wrapper .center{
+    width: 680px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 0 6px 2px rgb(30, 30, 30);
+}
+
+section.emps .reg-deps-list{
+    margin: 0 auto;
+    margin-top: 25%;
+    width: 100%;
+    padding: 20px;
+}
+
+    /* Modal */
+
+section.emps .reg-deps-wrapper input{
+    margin-bottom: 8px;
+    padding: 4px 4px 2px;
+    outline: none;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    color: rgb(90,90,90);
+}
+
+/** Footer */
+
+footer{
+    margin-top: 40px;
+    background-color: rgb(47, 47, 47);
+    position: relative;
+    height: 50px;
+}
+footer p{
+    color: white;
+    padding: 16px 0;
+    font-size: 14px;
+}
+footer p:first-child{
+    float: left;
+    padding-left: 8px;
+}
+footer p:last-child{
+    float: right;
+    padding-right: 8px;
+}
