@@ -47,7 +47,7 @@
                                 <p class="deps"><b>Idade: </b><?php echo $dependente[$i][$ii]['idade']; ?></p>
                                 <p class="deps"><b>CPF: </b><?php echo $dependente[$i][$ii]['cpf']; ?></p>
                                 <!-- Tag 'a' to edit a dependent -->
-                                <a class="edit-emp" href="http://localhost/editar_dependente?id=<?php echo $dep[$i][$ii]['id']; ?>&nome=<?php echo $dep[$i][$ii]['nome']; ?>&idade=<?php echo $dep[$i][$ii]['idade']; ?>&cpf=<?php echo $dep[$i][$ii]['cpf']; ?>&id_func=<?php echo $emp[$i]['id']; ?>&nome_func=<?php echo $emp[$i]['nome']; ?>&cpf_func=<?php echo $emp[$i]['cpf']; ?>&departamento=<?php echo $emp[$i]['departamento']; ?>">
+                                <a class="edit-emp" href="http://localhost/ci-crud/editar_dependente?id=<?php echo $dep[$i][$ii]['id']; ?>&nome=<?php echo $dep[$i][$ii]['nome']; ?>&idade=<?php echo $dep[$i][$ii]['idade']; ?>&cpf=<?php echo $dep[$i][$ii]['cpf']; ?>&id_func=<?php echo $emp[$i]['id']; ?>&nome_func=<?php echo $emp[$i]['nome']; ?>&cpf_func=<?php echo $emp[$i]['cpf']; ?>&departamento=<?php echo $emp[$i]['departamento']; ?>">
                                     <div>Editar</div>
                                 </a>
                                 <!-- Button to delete a dependent -->
@@ -60,7 +60,7 @@
                         }
                         ?>
                         <!-- Tag 'a' to register a dependent -->
-                        <a class="add-deps" href="http://localhost/cadastro_dependente?id_func=<?php echo $emp[$i]['id']; ?>&nome_func=<?php echo $emp[$i]['nome']; ?>&cpf_func=<?php echo $emp[$i]['cpf']; ?>&departamento=<?php echo $emp[$i]['departamento']; ?>">
+                        <a class="add-deps" href="http://localhost/ci-crud/cadastro_dependente?id_func=<?php echo $emp[$i]['id']; ?>&nome_func=<?php echo $emp[$i]['nome']; ?>&cpf_func=<?php echo $emp[$i]['cpf']; ?>&departamento=<?php echo $emp[$i]['departamento']; ?>">
                             <div>Cadastrar dependente</div>
                         </a>
 
@@ -73,7 +73,7 @@
                         <button data-emp-id="<?php echo $emp[$i]['id']; ?>" data-emp-name="<?php echo $emp[$i]['nome']; ?>" data-emp-depart="<?php echo $emp[$i]['departamento']; ?>" data-emp-cpf="<?php echo $emp[$i]['cpf']; ?>" type="button" class="bttn-emp del-emp conf-del-emp">Excluir cadastro</button>
 
                         <!-- Tag 'a' to edit a employee -->
-                        <a class="bttn-emp edit-emp" href="http://localhost/editar_cadastro?id=<?php echo $emp[$i]['id']; ?>&nome=<?php echo $emp[$i]['nome']; ?>&departamento=<?php echo $emp[$i]['departamento']; ?>&cpf=<?php echo $emp[$i]['cpf']; ?>&rua=<?php echo $emp[$i]['rua']; ?>&bairro=<?php echo $emp[$i]['bairro']; ?>&numero=<?php echo $emp[$i]['numero']; ?>&cidade=<?php echo $emp[$i]['cidade']; ?>&estado=<?php echo $emp[$i]['estadouf']; ?>"><div>Editar cadastro</div>
+                        <a class="bttn-emp edit-emp" href="http://localhost/ci-crud/editar_cadastro?id=<?php echo $emp[$i]['id']; ?>&nome=<?php echo $emp[$i]['nome']; ?>&departamento=<?php echo $emp[$i]['departamento']; ?>&cpf=<?php echo $emp[$i]['cpf']; ?>&rua=<?php echo $emp[$i]['rua']; ?>&bairro=<?php echo $emp[$i]['bairro']; ?>&numero=<?php echo $emp[$i]['numero']; ?>&cidade=<?php echo $emp[$i]['cidade']; ?>&estado=<?php echo $emp[$i]['estadouf']; ?>"><div>Editar cadastro</div>
                         </a>
                         <div class="clear"></div>
                     </div> <!-- Employee Data: cpf, address, dependents] -->

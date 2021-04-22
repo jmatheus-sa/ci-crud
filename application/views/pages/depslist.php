@@ -31,7 +31,7 @@ if( $namesrc !== ""){
         " ao funcionário " + el.data("empName") + "?");
         if(confirmAdd == true){
             confirmMsg = "Funcionário adicionado com sucesso";
-            window.location.replace("http://localhost/Lti/addDependent/"+el.data("empId")+"/"+el.data("depId"));
+            window.location.replace("http://localhost/ci-crud/Lti/addDependent/"+el.data("empId")+"/"+el.data("depId"));
         }
     });
 </script>

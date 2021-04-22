@@ -93,7 +93,7 @@ $(document).ready(function(){
         var str = el.val();
         // $(".reg-deps-wrapper table").after(data);
         if(str.length != 0){
-            $.get("http://localhost/Lti/depslist", {empName : el.attr("empname"), empId : el.attr("empid"), namesrc : str}, function(data){
+            $.get("http://localhost/ci-crud/Lti/depslist", {empName : el.attr("empname"), empId : el.attr("empid"), namesrc : str}, function(data){
                 $(".reg-deps-wrapper .deps-list-table").html(data);
             });
         }else{
@@ -111,7 +111,7 @@ $(document).ready(function(){
         el.data("empName") + "\nDepartamento: " + el.data("empDepart"));
         if(confirmDel == true){
             confirmMsg = "Funcionário excluído com sucesso";
-            window.location.replace("http://localhost/Lti/delEmployee/"+el.data("empId"));
+            window.location.replace("http://localhost/ci-crud/Lti/delEmployee/"+el.data("empId"));
         }
     });
 

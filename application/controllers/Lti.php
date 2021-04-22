@@ -112,6 +112,8 @@ class Lti extends CI_Controller {
 			$funcionario->setDepartamento($form_data['department']);
 
 			$this->em->flush();
+
+			redirect('ci-crud/funcionarios');
 			
 		}else{
 
@@ -129,6 +131,7 @@ class Lti extends CI_Controller {
 		$this->load->view('templates/side_menu.php', $data);
 		$this->load->view('pages/newemployee.php', $data);
 		$this->load->view('templates/footer.php');
+
 	}
 
 	public function funcionarios()
@@ -281,7 +284,7 @@ class Lti extends CI_Controller {
 
 			$this->em->flush();
 
-			redirect('/funcionarios');
+			redirect('ci-crud/funcionarios');
 			
 		}else{
 
@@ -299,6 +302,7 @@ class Lti extends CI_Controller {
 		$this->load->view('templates/side_menu.php', $data);
 		$this->load->view('pages/newemployee.php', $data);
 		$this->load->view('templates/footer.php');
+
 	}
 
 	public function cadastro_dependente(){
@@ -347,6 +351,8 @@ class Lti extends CI_Controller {
 			$funcionario->addDependente($dependente);
 
 			$this->em->flush();
+			
+			redirect('ci-crud/funcionarios');
 		}
 
 		$data = array('title' => 'LTI - Cadastro de Dependente', 'formTitle' => 'Cadastrar Dependente' ,'activeUrl' => '');
@@ -401,7 +407,7 @@ class Lti extends CI_Controller {
 
 			$this->em->flush();
 
-			redirect('/funcionarios');
+			redirect('ci-crud/funcionarios');
 		}
 
 		$data = array('title' => 'LTI - Cadastro de Dependente', 'formTitle' => 'Editar Dependente' ,'activeUrl' => '');
@@ -420,7 +426,7 @@ class Lti extends CI_Controller {
 
 		$this->em->flush();
 
-		redirect('/funcionarios');
+		redirect('ci-crud/funcionarios');
 	}
 
 	public function delDependent($id_dep, $id_emp){
@@ -435,7 +441,7 @@ class Lti extends CI_Controller {
 
 		$this->em->flush();
 
-		redirect('/funcionarios');
+		redirect('ci-crud/funcionarios');
 	}
 
 	public function depslist(){
@@ -465,6 +471,6 @@ class Lti extends CI_Controller {
 
 		$this->em->flush();
 
-		redirect('/funcionarios');
+		redirect('ci-crud/funcionarios');
 	}
 }
