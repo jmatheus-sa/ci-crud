@@ -1,6 +1,6 @@
 <div class="employees">
 
-    <div class="adj-top"></div> <!-- adj-top -->
+    <div class="adj-top"></div>
     <section class="right emps w82">
 
         <div class="center">
