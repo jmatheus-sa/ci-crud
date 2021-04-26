@@ -18,6 +18,20 @@ if( $namesrc !== ""){
 <?php
         }
     }
+}else{
+    for ($c = 0; $c < $dCounter; $c++) {
+?>
+
+    <table class="single-td dep-list-single-td" data-dep-id="<?php echo $depsList[$c]['id']; ?>" data-dep-name="<?php echo $depsList[$c]['nome']; ?>" data-emp-id="<?php echo $_REQUEST['empId']; ?>" data-emp-name="<?php echo $_REQUEST['empName']; ?>">
+        <tr>
+            <td><?php echo $depsList[$c]['id']; ?></td>
+            <td><?php echo $depsList[$c]['nome']; ?></td>
+            <td><?php echo $depsList[$c]['cpf']; ?></td>
+        </tr>
+    </table>
+
+<?php
+    }
 }
 ?>
 <script>

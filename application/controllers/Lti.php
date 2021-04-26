@@ -139,12 +139,9 @@ class Lti extends CI_Controller {
 		// Recuperar funcionário do banco de dados
 		$funcRepository = $this->em->getRepository('models\entidades\Funcionario');
 		$funcionarios = $funcRepository->findAll();
-		$depRepository = $this->em->getRepository('models\entidades\Dependente');
-		$dependentsList = $depRepository->findAll();
 		$funcionario = array();
 		$dependente = array();
-		$depsList = array();
-		$i = $ii = $dCounter = 0;
+		$i = $ii = 0;
 		$nDeps = array();
 		foreach($funcionarios as $func){
 			$funcionario[$i]['id'] = $func->getId();
@@ -285,9 +282,6 @@ class Lti extends CI_Controller {
 			$this->em->flush();
 
 			redirect('/funcionarios');
-			
-		}else{
-
 		}
 
         $ufs = $ufRepository->findAll();

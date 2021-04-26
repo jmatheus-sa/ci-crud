@@ -69,6 +69,9 @@ $(document).ready(function(){
         $(".reg-deps-wrapper").css("display","block");
         $(".reg-deps-wrapper input[name='searchdep']").attr("empname", el.data("empName"));
         $(".reg-deps-wrapper input[name='searchdep']").attr("empid", el.data("empId"));
+        $.get("http://localhost/ci-crud/Lti/depslist", {empName : el.data("empName"), empId : el.data("empId"), namesrc: null}, function(data){
+                $(".reg-deps-wrapper .deps-list-table").html(data);
+            });
     });
     
     // Fechar modal com "Esc"
@@ -97,7 +100,9 @@ $(document).ready(function(){
                 $(".reg-deps-wrapper .deps-list-table").html(data);
             });
         }else{
-            $(".reg-deps-wrapper .deps-list-table").html("");
+            $.get("http://localhost/ci-crud/Lti/depslist", {empName : el.attr("empname"), empId : el.attr("empid"), namesrc: null}, function(data){
+                $(".reg-deps-wrapper .deps-list-table").html(data);
+            });
         }
     });
 
