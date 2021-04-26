@@ -113,7 +113,7 @@ class Lti extends CI_Controller {
 
 			$this->em->flush();
 
-			redirect('ci-crud/funcionarios');
+			redirect('/funcionarios');
 			
 		}else{
 
@@ -284,7 +284,7 @@ class Lti extends CI_Controller {
 
 			$this->em->flush();
 
-			redirect('ci-crud/funcionarios');
+			redirect('/funcionarios');
 			
 		}else{
 
@@ -352,7 +352,7 @@ class Lti extends CI_Controller {
 
 			$this->em->flush();
 			
-			redirect('ci-crud/funcionarios');
+			redirect('/funcionarios');
 		}
 
 		$data = array('title' => 'LTI - Cadastro de Dependente', 'formTitle' => 'Cadastrar Dependente' ,'activeUrl' => '');
@@ -407,7 +407,7 @@ class Lti extends CI_Controller {
 
 			$this->em->flush();
 
-			redirect('ci-crud/funcionarios');
+			redirect('/funcionarios');
 		}
 
 		$data = array('title' => 'LTI - Cadastro de Dependente', 'formTitle' => 'Editar Dependente' ,'activeUrl' => '');
@@ -426,7 +426,7 @@ class Lti extends CI_Controller {
 
 		$this->em->flush();
 
-		redirect('ci-crud/funcionarios');
+		redirect('/funcionarios');
 	}
 
 	public function delDependent($id_dep, $id_emp){
@@ -441,7 +441,7 @@ class Lti extends CI_Controller {
 
 		$this->em->flush();
 
-		redirect('ci-crud/funcionarios');
+		redirect('/funcionarios');
 	}
 
 	public function depslist(){
@@ -471,6 +471,6 @@ class Lti extends CI_Controller {
 
 		$this->em->flush();
 
-		redirect('ci-crud/funcionarios');
+		redirect('/funcionarios');
 	}
 }
