@@ -25,6 +25,24 @@ class Lti extends CI_Controller {
 
 	public function cadastro()
 	{
+		$ufRepository = $this->em->getRepository('models\entidades\Estado');
+        $ufs = $ufRepository->findAll();
+		$ufsASC = array();
+		foreach($ufs as $uf){
+			$ufsASC[] = $uf->getUf();
+		}
+		sort($ufsASC, SORT_STRING);
+		
+		$data = array('title' => 'LTI - Cadastro', 'formTitle' => 'Cadastrar Funcionário',  'activeUrl' => 'newEmp', 'bttnId' => 'register-emp', 'ufs' => $ufsASC);
+		$this->load->view('templates/header.php', $data);
+		$this->load->view('templates/side_menu.php', $data);
+		$this->load->view('pages/newemployee.php', $data);
+		$this->load->view('templates/footer.php');
+
+	}
+
+	public function cadastroAction(){
+		$result = array();
 		$this->load->library('form_validation');
 		$ufRepository = $this->em->getRepository('models\entidades\Estado');
 		$config = array(
@@ -112,26 +130,15 @@ class Lti extends CI_Controller {
 			$funcionario->setDepartamento($form_data['department']);
 
 			$this->em->flush();
-
-			redirect('/funcionarios');
+			$result['success'] = true;
+			$result['message'] = "Funcionário cadastrado com sucesso!";
 			
 		}else{
-
+			$result['success'] = false;
+			$result['message'] = "Formulário inválido";
 		}
 
-        $ufs = $ufRepository->findAll();
-		$ufsASC = array();
-		foreach($ufs as $uf){
-			$ufsASC[] = $uf->getUf();
-		}
-		sort($ufsASC, SORT_STRING);
-		
-		$data = array('title' => 'LTI - Cadastro', 'formTitle' => 'Cadastrar Funcionário',  'activeUrl' => 'newEmp', 'ufs' => $ufsASC);
-		$this->load->view('templates/header.php', $data);
-		$this->load->view('templates/side_menu.php', $data);
-		$this->load->view('pages/newemployee.php', $data);
-		$this->load->view('templates/footer.php');
-
+		print json_encode($result);
 	}
 
 	public function funcionarios()
@@ -182,10 +189,28 @@ class Lti extends CI_Controller {
 
 	public function editar_cadastro()
 	{
+		$ufRepository = $this->em->getRepository('models\entidades\Estado');
+        $ufs = $ufRepository->findAll();
+		$ufsASC = array();
+		foreach($ufs as $uf){
+			$ufsASC[] = $uf->getUf();
+		}
+		sort($ufsASC, SORT_STRING);
+		
+		$data = array('title' => 'LTI - Cadastro', 'formTitle' => 'Editar Cadastro', 'activeUrl' => '', 'bttnId' => 'edit-register-emp', 'ufs' => $ufsASC);
+		$this->load->view('templates/header.php', $data);
+		$this->load->view('templates/side_menu.php', $data);
+		$this->load->view('pages/newemployee.php', $data);
+		$this->load->view('templates/footer.php');
+
+	}
+
+	public function editar_cadastroAction($id){
 		$this->load->library('form_validation');
 		$ufRepository = $this->em->getRepository('models\entidades\Estado');
 		$empRepository = $this->em->getRepository('models\entidades\Funcionario');
 		$employees = $empRepository->findAll();
+		$result = array();
 		$config = array(
 				array(
 					'field' => 'name',
@@ -257,46 +282,35 @@ class Lti extends CI_Controller {
 			$form_data = $this->input->post();
 
 			foreach($employees as $employee){
-				if($employee->getId() == (int)$_GET['id']){
+				if($employee->getId() == (int)$id){
 					$employee->setNome($form_data['name']);
 					$employee->setCpf($form_data['cpf']);
 					$employee->setDepartamento($form_data['department']);
 
-					if($form_data['street'] != $_GET['rua'] || $form_data['district'] != $_GET['bairro'] || 
-					$form_data['number'] != $_GET['numero'] || $form_data['city'] != $_GET['cidade'] || $form_data['state'] != $_GET['estado']){
-						$address = $employee->getEndereco();
-						$state = $address->getEstado();
-						$state->getEnderecos()->removeElement($address);
+					$address = $employee->getEndereco();
+					$state = $address->getEstado();
+					$state->getEnderecos()->removeElement($address);
 
-						$address->setRua($form_data['street']);
-						$address->setBairro($form_data['district']);
-						$address->setNumero($form_data['number']);
-						$address->setCidade($form_data['city']);
-						$estado = $ufRepository->findOneBy(array('uf' => (string)$form_data['state']));
-						$address->setEstado($estado);
-						$estado->addEnderecos($address);
-					}
+					$address->setRua($form_data['street']);
+					$address->setBairro($form_data['district']);
+					$address->setNumero($form_data['number']);
+					$address->setCidade($form_data['city']);
+					$newState = $ufRepository->findOneBy(array('uf' => (string)$form_data['state']));
+					$address->setEstado($newState);
+					$newState->addEnderecos($address);
 				}
 			}
 
 			$this->em->flush();
 
-			redirect('/funcionarios');
+			$result['success'] = true;
+			$result['message'] = "Cadastro editado com sucesso!";
+		}else{
+			$result['success'] = false;
+			$result['message'] = "Formulário inválido";
 		}
 
-        $ufs = $ufRepository->findAll();
-		$ufsASC = array();
-		foreach($ufs as $uf){
-			$ufsASC[] = $uf->getUf();
-		}
-		sort($ufsASC, SORT_STRING);
-		
-		$data = array('title' => 'LTI - Cadastro', 'formTitle' => 'Editar Cadastro', 'activeUrl' => '', 'ufs' => $ufsASC);
-		$this->load->view('templates/header.php', $data);
-		$this->load->view('templates/side_menu.php', $data);
-		$this->load->view('pages/newemployee.php', $data);
-		$this->load->view('templates/footer.php');
-
+		print json_encode($result);
 	}
 
 	public function cadastro_dependente(){

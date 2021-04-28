@@ -6,6 +6,7 @@
         // Input values
         $nome = $cpf = $departamento = $rua = $bairro = $numero = $cidade = $estado = "";
         if (isset($_GET['id'])) {
+            $id = $_GET['id'];
             $nome = $_GET['nome'];
             $cpf = $_GET['cpf'];
             $departamento = $_GET['departamento'];
@@ -14,10 +15,12 @@
             $numero = $_GET['numero'];
             $cidade = $_GET['cidade'];
             $estado = $_GET['estado'];
+        }else{
+            $id = "";
         }
         ?>
-
         <div class="center">
+        <div class="errormsg"></div>
             <div class="form-block">
                 <h3><?php echo $formTitle; ?></h3>
                 <form id="form-register-emp" action="" method="post">
@@ -69,11 +72,11 @@
                         </div> <!-- form-single -->
                         <div class="clear"></div><br>
 
-                        <button id="register-emp" type="button" class="submit-bttn">Salvar</button>
+                        <button id="<?php echo $bttnId; ?>" data-id="<?php echo $id; ?>"  type="button" class="submit-bttn">Salvar</button>
                         
                     </div> <!-- centert:modf -->
                 </form>
-                <div class="errorMsg"><?php echo validation_errors(); ?></div>
+                <div class="errorMsg"><?php //echo validation_errors(); ?></div>
             </div> <!-- form-block -->
         </div> <!-- center -->
 
