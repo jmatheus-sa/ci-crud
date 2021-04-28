@@ -32,15 +32,21 @@ $(document).ready(function () {
             var classMessage;
             if (response.success) {
                 classMessage = 'success';
+                $("body").prepend("<div id='message'></div>");
+                $('#message').addClass(classMessage).html(response.message).fadeOut(2000, function () {
+                    var newReg = confirm("Quer cadastrar outro funcionário?");
+                    if(newReg){
+                        location.reload();
+                    }else{
+                        location.replace("http://localhost/ci-crud/Lti/funcionarios");
+                    }                    
+                });
             } else {
                 classMessage = 'danger';
+                $("body").prepend("<div id='message'></div>");
+                $('#message').addClass(classMessage).html(response.message + ":<br><br>" + response.errors + "<br>").fadeOut(7000);
             }
-            $("body").prepend("<div id='message'></div>");
-            $('#message').addClass(classMessage).text(response.message).fadeOut(2000, "swing", function () {
-                if (classMessage == "success") {
-                    location.reload();
-                }
-            });
+            
         }, "json");
     });
 

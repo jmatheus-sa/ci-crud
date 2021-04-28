@@ -41,7 +41,8 @@ class Lti extends CI_Controller {
 
 	}
 
-	public function cadastroAction(){
+	public function cadastroAction()
+	{
 		$result = array();
 		$this->load->library('form_validation');
 		$ufRepository = $this->em->getRepository('models\entidades\Estado');
@@ -136,6 +137,7 @@ class Lti extends CI_Controller {
 		}else{
 			$result['success'] = false;
 			$result['message'] = "Formulário inválido";
+			$result['errors'] = validation_errors();
 		}
 
 		print json_encode($result);
@@ -205,7 +207,8 @@ class Lti extends CI_Controller {
 
 	}
 
-	public function editar_cadastroAction($id){
+	public function editar_cadastroAction($id)
+	{
 		$this->load->library('form_validation');
 		$ufRepository = $this->em->getRepository('models\entidades\Estado');
 		$employee = $this->em->find('models\entidades\Funcionario', $id);

@@ -62,12 +62,17 @@ html{
     right: 20px;
     top: 20px;
     width: 260px;
-    height: 60px;
+    min-height: 60px;
     padding-top: 12px;
     font-size: 14px;
     z-index: 999;
     box-shadow: 0 0 4px 1px rgb(59, 59, 59);
     text-align: center;
+}
+#message p{
+    text-align: left;
+    margin-left: 6px;
+    margin-bottom: 3px;
 }
 
 
