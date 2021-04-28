@@ -208,8 +208,7 @@ class Lti extends CI_Controller {
 	public function editar_cadastroAction($id){
 		$this->load->library('form_validation');
 		$ufRepository = $this->em->getRepository('models\entidades\Estado');
-		$empRepository = $this->em->getRepository('models\entidades\Funcionario');
-		$employees = $empRepository->findAll();
+		$employee = $this->em->find('models\entidades\Funcionario', $id);
 		$result = array();
 		$config = array(
 				array(
@@ -281,8 +280,6 @@ class Lti extends CI_Controller {
 		if(!($this->form_validation->run() == FALSE)){
 			$form_data = $this->input->post();
 
-			foreach($employees as $employee){
-				if($employee->getId() == (int)$id){
 					$employee->setNome($form_data['name']);
 					$employee->setCpf($form_data['cpf']);
 					$employee->setDepartamento($form_data['department']);
@@ -298,8 +295,6 @@ class Lti extends CI_Controller {
 					$newState = $ufRepository->findOneBy(array('uf' => (string)$form_data['state']));
 					$address->setEstado($newState);
 					$newState->addEnderecos($address);
-				}
-			}
 
 			$this->em->flush();
 
